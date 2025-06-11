@@ -13,4 +13,5 @@ Consolider en profondeur les bases de JavaScript (types, objets, fonctions, clos
 
 ## 🧠 Méthode
 
-Lecture active, reformulation personnelle, expérimentation, création de flashcards, puis mise en pratique dans mes projets (TribuZen, Turing Inversé...).
+Lecture active, reformulation personnelle, expérimentation, création de flashcards.
+En fin de lecture des trois livres, ou en parallèle, mise en pratique sur projet.
