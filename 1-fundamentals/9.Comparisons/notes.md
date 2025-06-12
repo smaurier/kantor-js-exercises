@@ -1,0 +1,4 @@
+- Comparer des strings utilise Unicode, donc `"2" > "12"` donne `true` (car `"2"` > `"1"` au premier caractère).
+- `null == undefined` → true, mais `null == 0` → false
+- `null >= 0` → true (car null devient 0), mais `null > 0` → false (JS convertit selon l'opérateur !)
+- Ne **jamais utiliser `==`** sauf pour quiz technique. Toujours préférer `===`.
