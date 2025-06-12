@@ -1,0 +1,5 @@
+- `+` est le seul opérateur arithmétique qui **force vers string si un des opérandes est string**.
+- Tous les autres (`-`, `*`, `/`, `%`) forcent vers **number**.
+- `"4" + 5` → `"45"` mais `"4" - 5` → `-1`
+- `~x` = `-(x + 1)` → pas à confondre avec `!`
+- `==` et `+` sont les deux sources principales de bugs liés à la coercion

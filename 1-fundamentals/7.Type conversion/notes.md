@@ -1,0 +1,6 @@
+- `String(null)` → `"null"` (pas `0`)
+- `Number(null)` → `0`, mais `Number(undefined)` → `NaN`
+- `"0"` est truthy car **non vide**
+- `[] == false` → true à cause de coercion (`[] → "" → 0`)
+- `"" == 0` → true (à cause de coercion implicite)
+- `==` déclenche des conversions implicites → préférer `===`
