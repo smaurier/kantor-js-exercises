@@ -25,4 +25,3 @@ En fin de lecture des trois livres, ou en parallèle, mise en pratique sur proje
 | `sandbox.js`          | Zone de **test libre** pour explorer les pièges, edge-cases, variantes et curiosités.    |
 | `notes.md`            | **Mémoire technique** des effets de bord, pièges, subtilités du moteur JS, à relire.     |
 | `/X.nom_du_chapitre/` | Un dossier par chapitre.                                                                 |
-
