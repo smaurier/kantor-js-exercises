@@ -15,3 +15,14 @@ Consolider en profondeur les bases de JavaScript (types, objets, fonctions, clos
 
 Lecture active, reformulation personnelle, expérimentation, création de flashcards.
 En fin de lecture des trois livres, ou en parallèle, mise en pratique sur projet.
+
+## Structure des fichiers
+
+| Fichier / dossier     | Rôle                                                                                     |
+|-----------------------|------------------------------------------------------------------------------------------|
+| `README.md`           | Résumé **pédagogique et synthétique** du chapitre. Reformulé avec mes mots.              |
+| `tasks.js`            | Résolution des **exercices officiels** du chapitre (sans triche). Commentés après coup.  |
+| `sandbox.js`          | Zone de **test libre** pour explorer les pièges, edge-cases, variantes et curiosités.    |
+| `notes.md`            | **Mémoire technique** des effets de bord, pièges, subtilités du moteur JS, à relire.     |
+| `/X.nom_du_chapitre/` | Un dossier par chapitre.                                                                 |
+
