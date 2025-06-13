@@ -1,0 +1,5 @@
+- `||` retourne la première valeur **truthy**
+- `&&` retourne la première valeur **falsy**
+- `!` inverse le booléen
+- `alert()` retourne `undefined` → c’est **toujours falsy**
+- Pour `if (!(condition))`, il faut **entourer tout** le test dans les parenthèses
