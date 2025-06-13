@@ -1,0 +1,6 @@
+- `while` peut ne jamais s’exécuter si la condition est fausse au départ.
+- `do...while` garantit une exécution au moins une fois.
+- Un `for` peut omettre n’importe quelle des 3 parties, mais c’est à éviter pour la lisibilité.
+- Attention aux boucles infinies : bien vérifier que la condition se rapprochera d’un `false`.
+- `break` permet de sortir d’une boucle avant la fin naturelle.
+- `continue` saute l’itération courante mais continue la boucle.
