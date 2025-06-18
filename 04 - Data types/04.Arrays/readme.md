@@ -145,9 +145,164 @@ String([1, 2]); // "1,2"
 
 ---
 
-### 🔹 Méthodes supplémentaires
+## 🔹 Méthodes supplémentaires
 
-- `splice(index, count, ...items)`
-- `slice(start, end)`
-- `forEach`, `map`, `filter`, `find`, `findIndex`, `some`, `every`
-- `sort()`, `reverse()`, `join(sep)`
+Carrément. Voici un **récapitulatif clair et synthétique** de ces méthodes **supplémentaires des tableaux** avec **cas d’usage**, **exemples concrets** et **pièges à éviter**. On reste dans l’esprit de Kantor : comprendre **le pourquoi**, **le comment**, **les cas limites**.
+
+---
+
+### 🔹 `splice(index, count, ...items)`
+
+**➡️ Ajoute, enlève ou remplace des éléments dans un tableau.**
+
+```js
+let arr = ["a", "b", "c", "d"];
+arr.splice(1, 2, "x", "y"); // à partir de l’index 1, supprime 2 éléments et insère "x" et "y"
+console.log(arr); // ["a", "x", "y", "d"]
+```
+
+- ⚠️ **Modifie le tableau d’origine**
+- Retourne un tableau avec les éléments supprimés
+
+---
+
+### 🔹 `slice(start, end)`
+
+**➡️ Coupe une portion du tableau (sans le modifier)**
+
+```js
+let arr = ["a", "b", "c", "d"];
+let sliced = arr.slice(1, 3); // ["b", "c"]
+```
+
+- `start` inclus, `end` exclus
+- Peut utiliser des **index négatifs** (`-1` = dernier)
+
+---
+
+### 🔹 `forEach(callback)`
+
+**➡️ Exécute une fonction sur chaque élément du tableau**
+
+```js
+["a", "b", "c"].forEach((item, index) => {
+  console.log(index, item);
+});
+```
+
+- **Ne retourne rien**
+- **Ne peut pas être stoppée** avec `break` ou `return`
+
+---
+
+### 🔹 `map(callback)`
+
+**➡️ Transforme chaque élément et retourne un nouveau tableau**
+
+```js
+let numbers = [1, 2, 3];
+let doubled = numbers.map((x) => x * 2); // [2, 4, 6]
+```
+
+- Le tableau d’origine reste inchangé
+- 📌 Essentiel en **programmation fonctionnelle**
+
+---
+
+### 🔹 `filter(callback)`
+
+**➡️ Garde seulement les éléments qui passent un test**
+
+```js
+let numbers = [1, 2, 3, 4];
+let even = numbers.filter((x) => x % 2 === 0); // [2, 4]
+```
+
+- Retourne un **nouveau tableau**
+- Ne modifie pas l’original
+
+---
+
+### 🔹 `find(callback)`
+
+**➡️ Retourne le **premier élément** qui passe un test**
+
+```js
+let users = [{ name: "Bob" }, { name: "Alice" }];
+let user = users.find((u) => u.name === "Alice"); // {name: "Alice"}
+```
+
+- Retourne `undefined` si aucun élément ne correspond
+
+---
+
+### 🔹 `findIndex(callback)`
+
+\*\*➡️ Comme `find`, mais retourne l’**index**
+
+```js
+let arr = ["a", "b", "c"];
+let index = arr.findIndex((x) => x === "b"); // 1
+```
+
+---
+
+### 🔹 `some(callback)`
+
+**➡️ Vérifie si au moins **un élément** passe un test**
+
+```js
+[1, 2, 3].some((x) => x > 2); // true
+```
+
+- Retourne un booléen
+
+---
+
+### 🔹 `every(callback)`
+
+**➡️ Vérifie si **tous les éléments** passent un test**
+
+```js
+[1, 2, 3].every((x) => x > 0); // true
+[1, 2, 3].every((x) => x > 2); // false
+```
+
+---
+
+### 🔹 `sort(compareFn)`
+
+\*\*➡️ Trie le tableau **(modifie l’original !)\***
+
+```js
+let arr = [1, 15, 2];
+arr.sort(); // [1, 15, 2] 😱 (ordre alphabétique !)
+arr.sort((a, b) => a - b); // [1, 2, 15]
+```
+
+- ⚠️ Par défaut, trie comme des **chaînes de caractères**
+- Utilise une fonction de comparaison personnalisée pour les nombres
+
+---
+
+### 🔹 `reverse()`
+
+**➡️ Inverse les éléments du tableau**
+
+```js
+[1, 2, 3].reverse(); // [3, 2, 1]
+```
+
+- ⚠️ Modifie l’original
+
+---
+
+### 🔹 `join(sep)`
+
+**➡️ Concatène tous les éléments en une seule string**
+
+```js
+["a", "b", "c"].join("-"); // "a-b-c"
+```
+
+- Utile pour exporter ou afficher des données
