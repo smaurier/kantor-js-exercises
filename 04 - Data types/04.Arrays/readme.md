@@ -147,8 +147,6 @@ String([1, 2]); // "1,2"
 
 ## 🔹 Méthodes supplémentaires
 
-Carrément. Voici un **récapitulatif clair et synthétique** de ces méthodes **supplémentaires des tableaux** avec **cas d’usage**, **exemples concrets** et **pièges à éviter**. On reste dans l’esprit de Kantor : comprendre **le pourquoi**, **le comment**, **les cas limites**.
-
 ---
 
 ### 🔹 `splice(index, count, ...items)`
