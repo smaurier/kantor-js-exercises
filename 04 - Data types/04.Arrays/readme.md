@@ -1,4 +1,4 @@
-# 📘 Résumé - Les Tableaux en JavaScript
+# 📘 Résumé - Les Tableaux en JavaScript (Version enrichie)
 
 ### 🔹 Pourquoi utiliser les tableaux ?
 
@@ -6,7 +6,7 @@ Les objets (`{}`) stockent des paires clé-valeur. Mais quand on veut une collec
 
 ---
 
-### 🔹 Déclaration
+### 🔹 Déclaration et types
 
 ```js
 let arr = new Array(); // Rare
@@ -14,9 +14,7 @@ let arr = []; // Fréquent
 let fruits = ["Apple", "Orange", "Plum"];
 ```
 
----
-
-### 🔹 Types mixtes
+Les tableaux peuvent contenir des types mixtes :
 
 ```js
 let arr = [
@@ -27,31 +25,29 @@ let arr = [
     alert("hello");
   },
 ];
-arr[1].name; // "John"
-arr[3](); // "hello"
 ```
 
 ---
 
-### 🔹 Accès et modification
+### 🔹 Accès, modification et longueur
 
 ```js
 fruits[0]; // "Apple"
 fruits[2] = "Pear";
-fruits[3] = "Lemon";
+fruits.push("Lemon");
 fruits.length; // 4
+fruits.at(-1); // Dernier élément
 ```
 
 ---
 
-### 🔹 Caractéristiques
-
-- ✅ Virgule terminale autorisée.
-- ✅ Accès au dernier élément :
+### 🔹 Copie par référence
 
 ```js
-fruits[fruits.length - 1];
-fruits.at(-1); // ES2022
+let fruits = ["Apple", "Pear"];
+let cart = fruits;
+cart.push("Banana");
+console.log(fruits.length); // 3, car cart et fruits pointent sur le même tableau
 ```
 
 ---
@@ -68,46 +64,86 @@ fruits.at(-1); // ES2022
 - `unshift(...items)`
 - `shift()`
 
----
+#### Spécial :
 
-### 🔹 Performance
+- `splice(index, deleteCount, ...items)` : modifie l'array (ajoute/remplace/supprime)
+- `slice(start, end)` : copie une portion (immuable)
+- `concat(arr1, arr2)` : concatène (immuable)
 
-- ✅ `push`/`pop` rapides
-- ❌ `shift`/`unshift` lents (réindexation)
-
----
-
-### 🔹 Tableaux = objets optimisés
-
-Éviter `arr.test = 5` ou `arr[9999] = ...`
-
----
-
-### 🔹 Boucles
+#### Attention à `delete` :
 
 ```js
-for (let i = 0; i < arr.length; i++) { ... }
-for (let item of arr) { ... }   // moderne
-for (let key in arr) { ... }    // ❌ à éviter
+let arr = ["a", "b", "c"];
+delete arr[1]; // laisse un "trou"
+console.log(arr); // ["a", <empty>, "c"]
 ```
 
 ---
 
-### 🔹 Propriété `.length`
-
-- Modifiable : tronque ou étend
+### 🔹 Itérations
 
 ```js
-arr.length = 2;
-arr.length = 0; // vide
+for (let i = 0; i < arr.length; i++) {}
+for (let item of arr) {
+}
+// ❌ for..in à éviter : parcourt aussi les propriétés
 ```
 
 ---
 
-### 🔹 new Array(x)
+### 🔹 Méthodes d’itération fonctionnelle
+
+- `forEach(fn)` : exécute une fonction pour chaque élément
+- `map(fn)` : transforme les éléments (immuable)
+- `filter(fn)` : filtre les éléments (immuable)
+- `find(fn)` : retourne le 1er élément satisfaisant
+- `findIndex(fn)` : retourne l’index du 1er élément
+- `some(fn)` / `every(fn)` : au moins un / tous les éléments valident la condition
+- `reduce(fn, init)` / `reduceRight(fn, init)` : accumulation
+- `sort(fn)` / `reverse()` : trie / inverse (mutables)
+- `join(sep)` : crée une string
+
+---
+
+### 🔹 Comparaison
 
 ```js
-new Array(2); // [empty × 2]
+[] == []; // false
+0 == []; // true
+```
+
+➡️ Comparer **élément par élément**.
+
+---
+
+### 🔹 Vérification d’un tableau
+
+```js
+Array.isArray([]); // true
+Array.isArray({}); // false
+```
+
+---
+
+### 🔹 Méthodes mutables vs immutables
+
+| Méthode        | Modifie l'array ?            |
+| -------------- | ---------------------------- |
+| push, pop      | ✅ Oui                       |
+| shift, unshift | ✅ Oui                       |
+| splice, sort   | ✅ Oui                       |
+| reverse        | ✅ Oui                       |
+| slice, map     | ❌ Non                       |
+| filter, concat | ❌ Non                       |
+| join           | ❌ Non (retourne une string) |
+
+---
+
+### 🔹 Conversion
+
+```js
+String([1, 2]); // "1,2"
+[1] + 1; // "11"
 ```
 
 ---
@@ -124,24 +160,20 @@ matrix[1][0]; // 3
 
 ---
 
-### 🔹 Conversion en string
+### 🔹 Résumé des pièges
 
-```js
-String([1, 2]); // "1,2"
-[1] + 1; // "11"
-```
+- `new Array(2)` → [empty × 2]
+- `delete arr[i]` laisse un trou
+- `==` entre tableaux → false
+- `sort()` trie par défaut comme des strings
 
 ---
 
-### 🔹 Comparaison
+### 🔹 À retenir
 
-```js
-([] == [][0]) == // false
-  [0]; // false
-0 == []; // true
-```
-
-➡️ Toujours comparer **élément par élément**.
+- Utiliser `Array.isArray()` pour tester un array
+- Préférer les méthodes **immutables** pour éviter les effets de bord
+- Bien connaître `splice`, `slice`, `reduce`, `map`, `filter` : essentiels en JS moderne
 
 ---
 

@@ -1,5 +1,3 @@
-// Quelques exercices JS à tester pour valider ta compréhension
-
 // 1. Ajoute un élément au début et à la fin
 let fruits = ["Banana"];
 fruits.unshift("Apple");
@@ -27,3 +25,35 @@ console.log(arr.includes("Hello")); // true
 let nums = [1, 4, 2, 10];
 nums.sort((a, b) => b - a);
 console.log(nums); // [10, 4, 2, 1]
+
+let testArray = [];
+testArray.length = 4;
+testArray[2] = "Arbre"
+console.log(testArray);
+
+//Splice
+let splicedArray = ["a", "b", "c", "d",];
+splicedArray.splice(0, 1, 1, 2, 3, 4, 5)
+console.log(splicedArray)
+console.log(String(splicedArray))
+
+//Slice
+let slicedArray = ["a", "b", "c", "d",];
+console.log(slicedArray.slice(0, 2));
+console.log(slicedArray);
+console.log(slicedArray.slice(-2, -1))
+
+//foreach
+let foreachArray = ["a", "b", "c", "d",];
+foreachArray.forEach((item, index) => {
+  console.log("foreched : " + item, "index : " + index)
+});
+
+//map
+let mappedArray = ["a", 2, 3, "d",];
+console.log(mappedArray.map(
+  (item, index) => {
+    return item * 2
+  }
+));
+
