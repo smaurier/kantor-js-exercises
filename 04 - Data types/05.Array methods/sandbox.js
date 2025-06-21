@@ -26,3 +26,16 @@
 // console.log(slicedArray);
 
 let arrayToConcat = [1, 2]
+
+let array2 = ["a", "b", "c"]
+
+let objectToConcat = {
+  0: "something",
+  1: "else",
+  length: 2,
+  [Symbol.isConcatSpreadable]: true
+}
+
+let arrayConcatenated = arrayToConcat.concat(array2, objectToConcat)
+
+console.log(arrayConcatenated)
